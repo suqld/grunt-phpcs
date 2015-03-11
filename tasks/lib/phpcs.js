@@ -122,6 +122,12 @@ exports.init = function(grunt) {
             attr;
         config  = runner.options(defaults);
 
+        for (attr in defaults) {
+            if (runner.data[attr] !== undefined) {
+                config[attr] = runner.data[attr];
+            }
+        }
+
         for (attr in cliOptions) {
             if (cliOptions[attr] !== undefined) {
                 config[attr] = cliOptions[attr];
